@@ -1,9 +1,9 @@
 # XML/jQuery Portfolio - Team Project
 
 ## 👥 Team Members
-- **Alex Costa Souza** (Team Lead)
-- **Seth R. MacKenzie** (Designer) 
-- **Jude Corkren** (Content Manager)
+- **Alex Costa Souza** 
+- **Seth R. MacKenzie**  
+- **Jude Corkren** 
 
 ## 📋 Project Info
 **What**: Portfolio website using XML, XSLT, jQuery  
