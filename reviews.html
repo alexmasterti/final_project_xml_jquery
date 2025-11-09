@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Restaurant Reviews — Reviews</title>
+  <link rel="stylesheet" href="styles/restaurant.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo-text">Logo</div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="reviews.html">reviews</a>
+      <a href="contact.html">contact</a>
+    </nav>
+  </header>
+
+  <main class="container grid-3">
+    <aside class="sidebar">
+      <h3>Reviews</h3>
+      <div class="review-list">
+        <div class="review-item"><strong>The Diner</strong> — 4 ★<br>Classic breakfast with friendly staff.<br><em>by Alex C.</em></div>
+        <div class="review-item"><strong>Pasta House</strong> — 5 ★<br>Amazing pasta and wine selection.<br><em>by Seth M.</em></div>
+        <div class="review-item"><strong>Sushi Bar</strong> — 4 ★<br>Fresh fish and great atmosphere.<br><em>by Jude C.</em></div>
+        <div class="review-item"><strong>Taco Spot</strong> — 3 ★<br>Good tacos, quick service.<br><em>by Guest</em></div>
+      </div>
+    </aside>
+
+    <section class="review-card">
+      <div class="review-media">
+        <img src="images/review-photo-1.svg" alt="review photo" style="width:100%;max-height:320px;object-fit:cover;border-radius:8px">
+      </div>
+      <div class="review-content">
+        <h2>The Diner — Quick Breakfast</h2>
+        <p>Short review paragraph describing the food, service, and atmosphere.</p>
+        <h4>Rating: ★★★★☆</h4>
+      </div>
+    </section>
+
+    <section class="review-card">
+      <div class="review-media">
+        <img src="images/review-photo-1.svg" alt="review photo" style="width:100%;max-height:320px;object-fit:cover;border-radius:8px">
+      </div>
+      <div class="review-content">
+        <h2>The Diner — Quick Breakfast</h2>
+        <p>Short review paragraph describing the food, service, and atmosphere.</p>
+        <h4>Rating: ★★★★☆</h4>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Add Review</h3>
+      <form id="add-review-form" class="review-form">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input id="name" name="name" class="input" required>
+        </div>
+        <div class="form-group">
+          <label for="place">Place name</label>
+          <input id="place" name="place" class="input" required>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating (1-5)</label>
+          <input id="rating" name="rating" type="number" min="1" max="5" class="input" required>
+        </div>
+        <div class="form-group">
+          <label for="review">Review</label>
+          <textarea id="review" name="review" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Review</button>
+      </form>
+    </aside>
+
+    <section class="review-card">
+      <div class="review-media">
+        <img src="images/review-photo-1.svg" alt="review photo" style="width:100%;max-height:320px;object-fit:cover;border-radius:8px">
+      </div>
+      <div class="review-content">
+        <h2>The Diner — Quick Breakfast</h2>
+        <p>Short review paragraph describing the food, service, and atmosphere.</p>
+        <h4>Rating: ★★★★☆</h4>
+      </div>
+    </section>
+
+    <section class="review-card">
+      <div class="review-media">
+        <img src="images/review-photo-1.svg" alt="review photo" style="width:100%;max-height:320px;object-fit:cover;border-radius:8px">
+      </div>
+      <div class="review-content">
+        <h2>The Diner — Quick Breakfast</h2>
+        <p>Short review paragraph describing the food, service, and atmosphere.</p>
+        <h4>Rating: ★★★★☆</h4>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">&copy; 2025 Restaurant Reviews — Student Project</div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="scripts/restaurant.js"></script>
+</body>
+</html>

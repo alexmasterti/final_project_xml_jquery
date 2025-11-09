@@ -1,0 +1,9 @@
+<!ELEMENT reviews (review*)>
+<!ELEMENT review (place,author,rating,date,summary,content)>
+<!ATTLIST review id ID #REQUIRED>
+<!ELEMENT place (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT summary (#PCDATA)>
+<!ELEMENT content (#PCDATA)>
