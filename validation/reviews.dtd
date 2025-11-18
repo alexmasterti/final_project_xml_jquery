@@ -7,3 +7,4 @@
 <!ELEMENT date (#PCDATA)>
 <!ELEMENT summary (#PCDATA)>
 <!ELEMENT content (#PCDATA)>
+<!ELEMENT reviewCount (#PCDATA)>
