@@ -28,6 +28,18 @@ body{font-family: 'Helvetica Neue', Arial, sans-serif;background:var(--bg);color
   margin-bottom: 12px;
 }
 
+/*image within the logo*/
+.logo-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15vw;
+  width: 50%;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /* Full-width logo bar to match footer look */
 .logo-bar{
   background: var(--accent);
