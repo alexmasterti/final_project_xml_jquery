@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Restaurant Reviews — Contact</title>
   <link rel="stylesheet" href="styles/restaurant.css">
+  
+  <!--jQuery-->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script src="scripts/restaurant.js"></script>
+  <script src="scripts/contact-form.js"></script>
+  
 </head>
 <body>
   <header class="site-header">
@@ -24,18 +32,18 @@
       <h2>Contact Us</h2>
       <p>If you'd like to suggest a restaurant or collaborate, drop us a line.</p>
       
-      <form id="contact-form" class="contact-form">
+      <form action="thankyou.html" id="contact-form" class="contact-form" method="GET">
         <div class="form-group">
           <label for="name">Your name</label>
-          <input id="name" name="name" class="input" required>
+          <input id="name" name="name" class="input">
         </div>
         <div class="form-group">
           <label for="email">Your email</label>
-          <input id="email" name="email" type="email" class="input" required>
+          <input id="email" name="email" type="email" class="input">
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message"></textarea>
         </div>
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
