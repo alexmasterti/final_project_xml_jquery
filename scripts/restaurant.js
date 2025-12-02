@@ -6,7 +6,7 @@ $(function(){
     const name = $('#name').val();
     const place = $('#place').val();
     const rating = $('#rating').val();
-    const review = $('#review').val();
+    const review = $('#review').val(); 
 
     if(!name || !place || !rating || !review){
       alert('Please fill all fields');
