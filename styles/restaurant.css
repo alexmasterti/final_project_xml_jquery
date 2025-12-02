@@ -79,7 +79,24 @@ body{font-family: 'Helvetica Neue', Arial, sans-serif;background:var(--bg);color
 .form-group{margin-bottom:12px}
 .input,textarea{width:100%;padding:10px;border-radius:6px;border:1px solid #c8b6a3}
 textarea{min-height:120px}
-.submit-btn{background:var(--accent);color:var(--bg);padding:10px 16px;border-radius:8px;border:none;font-weight:700}
+.submit-btn{background:var(--accent);color:var(--bg);padding:10px 16px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+.submit-btn:hover{opacity:0.9}
+
+/* jQuery Validation Error Messages */
+label.error{
+  color:#b04b3f;
+  font-size:0.9rem;
+  margin-top:5px;
+  display:block;
+  font-weight:normal;
+}
+input.error,textarea.error{
+  border-color:#b04b3f;
+  background-color:#fef5f5;
+}
+input.valid,textarea.valid{
+  border-color:#3b5e3d;
+}
 
 /* Footer */
 .site-footer{background:var(--accent);color:var(--bg);padding:20px;margin-top:40px;text-align:center}
@@ -90,4 +107,240 @@ textarea{min-height:120px}
   .features{grid-template-columns:1fr}
   .grid-3{grid-template-columns:1fr}
   .main-nav{overflow:auto}
+}
+
+/* ===== XML-Specific Styles ===== */
+/* These styles apply when reviews.xml is opened directly */
+/* All scoped to 'page' element to avoid conflicts with HTML */
+
+/* Page container */
+page {
+  display: block;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--accent-dark);
+}
+
+/* Header */
+page header {
+  display: block;
+  padding: 20px 0;
+}
+
+page container {
+  display: block;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+page logo-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15vw;
+  width: 50%;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Navigation */
+page nav {
+  display: flex;
+  background: var(--green);
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+page nav-link {
+  display: inline-block;
+  color: var(--bg);
+  text-decoration: none;
+  padding: 12px 20px;
+  font-weight: 700;
+}
+
+page nav-link:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Main content area */
+page main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sidebar */
+page sidebar {
+  display: block;
+  background: var(--green);
+  color: var(--bg);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+page sidebar-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Review list in sidebar */
+page review-list {
+  display: block;
+  padding: 20px 0;
+}
+
+page review-item {
+  display: block;
+  padding: 12px;
+  border-bottom: 1px dashed #9dc9a9;
+  color: var(--bg);
+  margin-bottom: 10px;
+}
+
+page item-place {
+  display: inline;
+  font-weight: bold;
+}
+
+page item-place:after {
+  content: " — ";
+}
+
+page item-rating {
+  display: inline;
+}
+
+page item-rating:after {
+  content: " ★";
+}
+
+page item-summary {
+  display: block;
+  margin: 5px 0;
+}
+
+page item-author {
+  display: block;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+page item-author:before {
+  content: "by ";
+}
+
+/* Review cards */
+page review-card {
+  display: block;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+page review-card[image="diner_breakfast.jpg"]:before,
+page review-card[image="rice_and_curry.jpg"]:before,
+page review-card[image="tacos_on_blue_plate.jpg"]:before,
+page review-card[image="sushi_on_brown_wooden_board.jpg"]:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+page review-card[image="diner_breakfast.jpg"]:before {
+  background-image: url("../images/diner_breakfast.jpg");
+}
+
+page review-card[image="rice_and_curry.jpg"]:before {
+  background-image: url("../images/rice_and_curry.jpg");
+}
+
+page review-card[image="tacos_on_blue_plate.jpg"]:before {
+  background-image: url("../images/tacos_on_blue_plate.jpg");
+}
+
+page review-card[image="sushi_on_brown_wooden_board.jpg"]:before {
+  background-image: url("../images/sushi_on_brown_wooden_board.jpg");
+}
+
+page card-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+page card-content {
+  display: block;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+page card-rating {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+page card-rating:before {
+  content: "Rating: ";
+}
+
+page card-rating:after {
+  content: " ★";
+}
+
+/* Form note in sidebar */
+page form-note {
+  display: block;
+  padding: 15px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+page footer {
+  display: block;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+page footer-content {
+  display: block;
+}
+
+/* Responsive for XML */
+@media screen and (max-width:800px){
+  page main {
+    grid-template-columns: 1fr;
+  }
+
+  page logo-img {
+    height: 25vw;
+    width: 70%;
+  }
+
+  page nav {
+    overflow: auto;
+  }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reviews SYSTEM "../validation/reviews.dtd">
+<reviews>
+  <review id="review1">
+    <place>The Diner</place>
+    <author>Alex C.</author>
+    <rating>4</rating>
+    <date>2025-10-01</date>
+    <summary>Classic breakfast with friendly staff.</summary>
+    <content>Great pancakes and fast service. Cozy atmosphere perfect for morning meals.</content>
+  </review>
+  <review id="review2">
+    <place>Pasta House</place>
+    <author>Seth M.</author>
+    <rating>5</rating>
+    <date>2025-10-05</date>
+    <summary>Amazing pasta and wine selection.</summary>
+    <content>Beautiful presentation and authentic flavors. Highly recommend the carbonara.</content>
+  </review>
+  <review id="review3">
+    <place>Sushi Bar</place>
+    <author>Jude C.</author>
+    <rating>4</rating>
+    <date>2025-10-10</date>
+    <summary>Fresh fish and great atmosphere.</summary>
+    <content>Fresh fish and great atmosphere. The chef's special roll was outstanding.</content>
+  </review>
+  <review id="review4">
+    <place>Taco Spot</place>
+    <author>Guest</author>
+    <rating>3</rating>
+    <date>2025-10-15</date>
+    <summary>Good tacos, quick service.</summary>
+    <content>Good tacos with quick service. Perfect for a casual lunch or dinner.</content>
+  </review>
+</reviews>
