@@ -9,7 +9,9 @@
       <div class="review-list">
         <xsl:for-each select="review">
           <div class="review-item">
-            <strong><xsl:value-of select="place"/></strong> — <xsl:value-of select="rating"/> ★<br/>
+            <strong><xsl:value-of select="place"/></strong> — <xsl:call-template name="generateStars">
+              <xsl:with-param name="rating" select="rating"/>
+            </xsl:call-template><br/>
             <xsl:value-of select="summary"/><br/>
             <em>by <xsl:value-of select="author"/></em>
           </div>
@@ -61,13 +63,20 @@
             </div>
             <div class="form-group">
               <label for="rating">Rating (1-5)</label>
-              <input id="rating" name="rating" type="text" class="input"/>
+              <select id="rating" name="rating" class="input">
+                <option value="">Select rating...</option>
+                <option value="1">1 ★</option>
+                <option value="2">2 ★★</option>
+                <option value="3">3 ★★★</option>
+                <option value="4">4 ★★★★</option>
+                <option value="5">5 ★★★★★</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="review">Review</label>
               <textarea id="review" name="review"></textarea>
             </div>
-            <button type="submit" class="submit-btn">Submit Review</button>
+            <button type="button" class="submit-btn">Submit Review</button>
           </form>
         </aside>
       </xsl:if>

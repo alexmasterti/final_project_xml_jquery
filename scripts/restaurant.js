@@ -6,75 +6,6 @@ $(function(){
     loadReviewsFromXML();
   }
 
-  // Initialize add review form validation when it's loaded (dynamically via XSLT)
-  $(document).on('DOMNodeInserted', function() {
-    if ($('#add-review-form').length && !$('#add-review-form').hasClass('validated')) {
-      $('#add-review-form').addClass('validated').validate({
-        rules: {
-          name: {
-            required: true,
-            minlength: 2
-          },
-          place: {
-            required: true,
-            minlength: 2
-          },
-          rating: {
-            required: true,
-            number: true,
-            min: 1,
-            max: 5
-          },
-          review: {
-            required: true,
-            minlength: 10
-          }
-        },
-        messages: {
-          name: {
-            required: "Please enter your name.",
-            minlength: "Name must be at least 2 characters."
-          },
-          place: {
-            required: "Please enter the restaurant name.",
-            minlength: "Restaurant name must be at least 2 characters."
-          },
-          rating: {
-            required: "Please select a rating.",
-            number: "Please enter a valid number.",
-            min: "Rating must be between 1 and 5.",
-            max: "Rating must be between 1 and 5."
-          },
-          review: {
-            required: "Please enter your review.",
-            minlength: "Review must be at least 10 characters."
-          }
-        },
-        submitHandler: function(form) {
-          // Extract form values
-          const name = $('#name').val();
-          const place = $('#place').val();
-          const rating = $('#rating').val();
-          const review = $('#review').val();
-
-          // Append to review list (demo only) - using safe DOM methods to prevent XSS
-          const item = $('<div class="review-item"></div>');
-          const placeStrong = $('<strong></strong>').text(place);
-          const ratingText = $('<span></span>').text(' — ' + rating + ' ★');
-          const reviewText = $('<span></span>').text(review);
-          const authorEm = $('<em></em>').text('by ' + name);
-
-          item.append(placeStrong).append(ratingText).append('<br>').append(reviewText).append('<br>').append(authorEm);
-          $('.review-list').append(item);
-
-          // Clear form
-          form.reset();
-          return false;
-        }
-      });
-    }
-  });
-
   // Contact form jQuery validation
   $('#contact-form').validate({
     rules: {
@@ -133,6 +64,9 @@ function loadReviewsFromXML() {
           // Insert transformed HTML into the page
           if (resultDocument) {
             $('#reviews-container').html(resultDocument);
+
+            // Initialize form validation after content is loaded
+            initializeAddReviewForm();
           }
         },
         error: function() {
@@ -167,4 +101,83 @@ function transformXML(xml, xsl) {
   }
 
   return resultDocument;
+}
+
+// Initialize add review form validation
+function initializeAddReviewForm() {
+  if ($('#add-review-form').length) {
+    // Set up validation rules
+    $('#add-review-form').validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2
+        },
+        place: {
+          required: true,
+          minlength: 2
+        },
+        rating: {
+          required: true
+        },
+        review: {
+          required: true,
+          minlength: 10
+        }
+      },
+      messages: {
+        name: {
+          required: "Please enter your name.",
+          minlength: "Name must be at least 2 characters."
+        },
+        place: {
+          required: "Please enter the restaurant name.",
+          minlength: "Restaurant name must be at least 2 characters."
+        },
+        rating: {
+          required: "Please select a rating."
+        },
+        review: {
+          required: "Please enter your review.",
+          minlength: "Review must be at least 10 characters."
+        }
+      }
+    });
+
+    // Handle button click instead of form submit
+    $('.submit-btn').on('click', function(e) {
+      e.preventDefault();
+
+      // Trigger validation
+      if ($('#add-review-form').valid()) {
+        // Form is valid, extract values
+        const name = $('#name').val();
+        const place = $('#place').val();
+        const rating = $('#rating').val();
+        const review = $('#review').val();
+
+        // Append to review list - using safe DOM methods to prevent XSS
+        const item = $('<div class="review-item"></div>');
+        const placeStrong = $('<strong></strong>').text(place);
+
+        // Generate stars based on rating
+        const stars = '★'.repeat(parseInt(rating)) + '☆'.repeat(5 - parseInt(rating));
+        const ratingText = $('<span></span>').text(' — ' + stars);
+
+        const reviewText = $('<span></span>').text(review);
+        const authorEm = $('<em></em>').text('by ' + name);
+
+        item.append(placeStrong).append(ratingText).append('<br>').append(reviewText).append('<br>').append(authorEm);
+        $('.review-list').append(item);
+
+        // Clear form
+        $('#add-review-form')[0].reset();
+        $('#add-review-form').validate().resetForm();
+
+        // Show success message
+        alert('Thank you for sharing your review! Your feedback has been added to our list.');
+      }
+      // If form is not valid, jQuery validation will show error messages automatically
+    });
+  }
 }
